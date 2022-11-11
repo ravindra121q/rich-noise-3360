@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="login.css" />
+    <style>
+      table {
+        /* border: 1px solid red; */
+        color: white;
+        width: 50%;
+        margin: auto;
+        text-align: center;
+      }
+      table > tbody > tr:nth-child(even) {
+        background-color: red;
+      }
+      table > thead {
+        background-color: blue;
+      }
+      a {
+        text-align: center;
+        color: white;
+        text-decoration: none;
+        display: block;
+        margin-top: 5%;
+      }
+    </style>
+    <title>Login Page</title>
+  </head>
+  <body>
+    <form>
+      <h2>Admin Login to Hi-Fi</h2>
+      <h3>
+        Login to continue enjoying uninterrpted video and personalised
+        experience.
+      </h3>
+      <div id="logo">
+        <img src="https://img.icons8.com/ios-glyphs/2x/mac-os.png" alt="" /><img
+          src="https://cdn3.iconfinder.com/data/icons/picons-social/57/40-google-plus-128.png"
+          alt=""
+        /><img
+          src="https://cdn3.iconfinder.com/data/icons/picons-social/57/11-linkedin-128.png"
+          alt=""
+        /><img src="" alt="" />
+      </div>
+      <div id="or">or</div>
+      <input id="email" type="text" placeholder="Enter Your Email ID" />
+      <br /><input
+        id="password"
+        type="password"
+        placeholder="Enter Your Password"
+      />
+      <br /><input id="sub" type="Submit" value="Login" />
+    </form>
+    <table id="table"></table>
+    <a href="Homepage.html">Home Page</a>
+  </body>
+</html>
+<script>
+  arr = JSON.parse(localStorage.getItem("data")) || [];
+  document.querySelector("form").addEventListener("submit", myfun);
+
+  email1 = document.querySelector("#email");
+  password1 = document.querySelector("#password");
+  function myfun() {
+    event.preventDefault();
+    let obj = {
+      email1: email1.value,
+      password1: password1.value,
+    };
+    if (obj.email1 == "" || obj.password1 == "") {
+      alert("Fill all the data");
+    } else {
+      //   arr.forEach((ele) => {
+      if (obj.email1 == "admin123@gmail.com" && obj.password1 == "1234") {
+        alert(" Login Sucessfull");
+        document.querySelector("form").innerHTML = "";
+
+        thead = document.createElement("thead");
+        th1 = document.createElement("th");
+        th1.innerText = "Name";
+        th2 = document.createElement("th");
+        th2.innerText = "Email";
+        th3 = document.createElement("th");
+        th3.innerText = "Password";
+        tbody = document.createElement("tbody");
+        thead.append(th1, th2, th3);
+
+        document.querySelector("#table").append(thead, tbody);
+
+        arr.forEach((ele) => {
+          row = document.createElement("tr");
+          td1 = document.createElement("td");
+          td1.innerText = ele.name1;
+          td2 = document.createElement("td");
+          td2.innerText = ele.email1;
+          td3 = document.createElement("td");
+          td3.innerText = ele.password1;
+          row.append(td1, td2, td3);
+          tbody.append(row);
+        });
+      } else {
+        alert("wrong credentials");
+      }
+    }
+  }
+</script>

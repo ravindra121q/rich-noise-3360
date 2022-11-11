@@ -28,6 +28,10 @@ body {
   margin-left: 1%;
   margin-top: 0.7%;
 }
+#navlhs > h2 > a {
+  color: white;
+  text-decoration: none;
+}
 #navrhs {
   /* border: 1px solid green; */
   display: flex;
@@ -61,4 +65,32 @@ body {
 }
 #midslider {
   display: flex;
+}
+#login {
+  width: 70px;
+  height: 33px;
+  border-radius: 8px;
+  margin-left: 0;
+  margin-right: 0;
+
+  background-color: black;
+  border: 1px solid white;
+}
+#login > a {
+  text-decoration: none;
+  color: white;
+}
+
+#buybtn {
+  width: 110px;
+
+  height: 35px;
+  border-radius: 8px;
+  margin-right: 3%;
+  color: white;
+  align-items: center;
+  font-size: 15px;
+  background-color: rgb(130, 48, 198);
+
+  border: 1px solid white;
 }

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="login.css" />
+    <style>
+      #aa {
+        display: block;
+        text-align: center;
+        font-size: 40px;
+        text-decoration: none;
+        color: white;
+      }
+    </style>
+    <title>Login Page</title>
+  </head>
+  <body>
+    <form>
+      <h2>Login to Hi-Fi</h2>
+      <h3>
+        Login to continue enjoying uninterrpted video and personalised
+        experience.
+      </h3>
+      <div id="logo">
+        <img src="https://img.icons8.com/ios-glyphs/2x/mac-os.png" alt="" /><img
+          src="https://cdn3.iconfinder.com/data/icons/picons-social/57/40-google-plus-128.png"
+          alt=""
+        /><img
+          src="https://cdn3.iconfinder.com/data/icons/picons-social/57/11-linkedin-128.png"
+          alt=""
+        /><img src="" alt="" />
+      </div>
+      <div id="or">or</div>
+      <input id="email" type="text" placeholder="Enter Your Email ID" />
+      <br /><input
+        id="password"
+        type="password"
+        placeholder="Enter Your Password"
+      />
+      <br /><input id="sub" type="Submit" value="Login" />
+    </form>
+    <h3>New to Hi-Fi ? <a href="signup.html">Register</a></h3>
+  </body>
+</html>
+<script>
+  arr = JSON.parse(localStorage.getItem("data")) || [];
+  document.querySelector("form").addEventListener("submit", myfun);
+
+  email1 = document.querySelector("#email");
+  password1 = document.querySelector("#password");
+  function myfun() {
+    event.preventDefault();
+    let obj = {
+      email1: email1.value,
+      password1: password1.value,
+    };
+    if (obj.email1 == "" || obj.password1 == "") {
+      alert("Fill all the data");
+    } else {
+      flag = 1;
+      arr.forEach((ele) => {
+        if (ele.email1 == obj.email1 && ele.password1 == obj.password1) {
+          flag = 0;
+        } else {
+          flag = 1;
+        }
+      });
+      if (flag == 0) {
+        alert(" Login Sucessfull");
+        a1 = document.createElement("a");
+        a1.setAttribute("href", "Homepage1.html");
+        a1.setAttribute("id", "aa");
+        a1.innerText = "Wel-Come to Hi-Fi";
+        document.querySelector("body").append(a1);
+      } else {
+        alert("wrong credentials");
+      }
+    }
+  }
+</script>

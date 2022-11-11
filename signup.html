@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SignUp Page</title>
+    <link rel="stylesheet" href="login.css" />
+  </head>
+  <body>
+    <form>
+      <h2>Create a new account</h2>
+      <h3>
+        Create an account to continue enjoying uninterrupted video and
+        personalised experience
+      </h3>
+      <div id="logo">
+        <img src="https://img.icons8.com/ios-glyphs/2x/mac-os.png" alt="" /><img
+          src="https://cdn3.iconfinder.com/data/icons/picons-social/57/40-google-plus-128.png"
+          alt=""
+        /><img
+          src="https://cdn3.iconfinder.com/data/icons/picons-social/57/11-linkedin-128.png"
+          alt=""
+        /><img src="" alt="" />
+      </div>
+      <div id="or">or</div>
+
+      <input type="text" name="" id="name" placeholder="Enter Your Name" />
+      <input id="email" type="text" placeholder="Enter Your Email ID" />
+      <input id="password" type="password" placeholder="Enter Your Password" />
+      <input id="s" type="Submit" value="SignUp" />
+    </form>
+    <h3>Already Registered ? <a href="login.html">Login</a></h3>
+  </body>
+</html>
+<script>
+  let arr = JSON.parse(localStorage.getItem("data")) || [];
+  document.querySelector("form").addEventListener("submit", myfun);
+  let name1 = document.querySelector("#name");
+  let email1 = document.querySelector("#email");
+  let password1 = document.querySelector("#password");
+
+  function myfun() {
+    event.preventDefault();
+    let obj = {
+      name1: name1.value,
+      email1: email1.value,
+      password1: password1.value,
+    };
+    if (obj.name1 == "" || obj.email1 == "" || obj.password1 == "") {
+      alert("Fill all the data");
+    } else {
+      flag = 1;
+      arr.forEach((ele) => {
+        if (ele.name1 == obj.name1 && ele.email1 == obj.email1) {
+          flag = 0;
+        } else {
+          flag = 1;
+        }
+      });
+      if (flag == 0) {
+        alert("Already Registered");
+      } else {
+        alert("Sucessflly Registered");
+        arr.push(obj);
+        console.log(obj);
+        localStorage.setItem("data", JSON.stringify(arr));
+      }
+    }
+  }
+</script>

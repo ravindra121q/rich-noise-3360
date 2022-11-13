@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-transform: capitalize;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: normal;padding: 5%;padding-top: 2%; background-color: rgb(14, 6, 22);
+      }body{
+        background-color: rgb(14, 6, 22);
+      }
+      .heading {
+        color: #444;
+        font-size: 40px;
+        text-align: center;
+        padding: 10px;
+      }
+      .container {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 15px;
+        align-items: flex-start;
+        padding: 5px 5px;
+      }
+      .container .main-video {
+        background: white;
+        border-radius: 5px;
+        padding: 10px;
+      }
+      .container .main-video video {
+        width: 100%;
+        border-radius: 5px;
+      }
+      .container .main-video .title {
+        color: #333;
+        font-size: 23px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+      }
+      .container .video-list {
+        background-color: rgb(14, 6, 22);
+        border-radius: 5px;
+        height: 520px;
+        overflow-y: scroll;
+      }
+      .container .video-list::-webkit-scrollbar {
+        width: 7px;
+      }
+      .container .video-list::-webkit-scrollbar-track {
+        background: white;
+        border-radius: 50px;
+      }
+      .container .video-list::-webkit-scrollbar-thumb {
+        background: #666;
+        border-radius: 50px;
+      }
+      .container .video-list .vid video {
+        width: 100px;
+        border-radius: 5px;
+      }
+      .container .video-list .vid {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        background: white;
+        border-radius: 5px;
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid rgba(0, 0, 0, 1);
+        cursor: pointer;
+      }
+      .container .video-list .vid:hover {
+        background: white;
+      }
+      .container .video-list .vid.active {
+        background: #2980b9;
+      }
+      .container .video-list .vid .title {
+        color: white;
+      }
+      .container .video-list .vid .title {
+        color: #333;
+        font-size: 17px;
+      }
+      @media (max-width: 991px) {
+        .container {
+          grid-template-columns: 1.5fr 1fr;
+          padding: 10px;
+        }
+      }
+      @media (max-width: 768px) {
+        .container {
+          grid-template-columns: 1fr;
+          padding: 10px;
+        }
+      }h1{
+        text-align: center;color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Videos</h1>
+    <div class="container">
+      <div class="main-video">
+        <div class="video">
+          <video
+            src="/video/An Action Hero (Official Trailer) Ayushmann Khurrana, Jaideep A - Aanand L Rai, Anirudh - Bhushan K.mp4"
+            controls
+            muted
+            autoplay
+          ></video>
+          <h3 class="title">Action Hero</h3>
+        </div>
+    
+      </div>
+      <div class="video-list">
+        <div class="vid">
+          <video
+            src="/video/Chann Sitare - Oye Makhna - Ammy Virk - Tania - Simerjit Singh - New Punjabi Songs 2022.mp4"
+            controls
+            muted
+            autoplay
+          >
+            Chann Sitare
+          </video>
+          <h3 class="title">Chann Sitere</h3>
+        </div>
+        <div class="vid">
+          <video
+            src="/video/Diljit Dosanjh - Do You Know.mp4"
+            controls
+            muted
+            autoplay
+          >
+            Do You Know
+          </video>
+          <h3 class="title">Chann Sitere</h3>
+        </div>
+        <div class="vid">
+          <video
+            src="/video/Jassi Gill - Chetak Vs Lancer , Happy Raikoti - New Punjabi Song 2022.mp4"
+            controls
+            muted
+            autoplay
+          >
+            Chetak Vs Lancer
+          </video>
+          <h3 class="title">Chann Sitere</h3>
+        </div>
+        <div class="vid">
+          <video
+            src="/video/RRR Official Trailer (Hindi) India’s Biggest Action Drama - NTR,RamCharan,AjayD,AliaB - SS Rajamouli.mp4"
+            controls
+            muted
+            autoplay
+          >
+            RRR
+          </video>
+          <h3 class="title">Chann Sitere</h3>
+        </div>
+      </div>
+    
+      
+  </body>
+</html>
+<script>
+  let listVideo = document.querySelectorAll(".video-list .vid");
+  let mainVideo = document.querySelector(".main-video");
+  title = document.querySelectorAll(".main-video .title");
+
+  listVideo.forEach((video) => {
+    video.onclick = () => {
+      listVideo.forEach((vid) => vid.classList.removal("active"));
+      video.classList.add("active");
+      if (video.classList.contains("active")) {
+        let src = video.chidren[0].getAttrribute("src");
+        mainVideo.src = src;
+        let text = video.children[1].innerHTML;
+        title.innerHTML = text;
+      }
+    };
+  });
+</script>

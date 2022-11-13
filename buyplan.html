@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        background-color: rgb(14, 6, 22);
+        display: block;
+        align-items: center;
+        justify-content: center;
+      }
+      #container {
+        border: 1px solid red;
+        width: 60%;
+        display: flex;
+        border-radius: 8px;
+        margin: auto;
+        margin-top: 4%;
+        background-color: white;
+      }
+      #container > #lhs {
+        border: 1px dashed red;
+        border-radius: 8px;
+        padding: 3px;
+      }
+      #rhs {
+        padding: 2%;
+      }
+      #hallo {
+        width: 70px;
+        height: 40px;
+      }
+
+      #ac {
+        display: block;
+        align-items: center;
+        margin-left: 45%;
+        margin-top: 8px;
+        border-radius: 8px;
+      }
+      #ac > button {
+        border-radius: 8px;
+        color: white;
+        background-color: blueviolet;
+        height: 40px;
+        width: 90px;
+      }
+      #container2 > button {
+        padding-right: 2px;
+
+        width: 100%;
+      }
+      #qwer {
+        background-color: black;
+        color: white;
+        border-radius: 8px;
+      }
+      #top,
+      #top2 {
+        margin-right: 5px;
+        color: white;
+        background-color: steelblue;
+        border: none;
+        border-radius: 8px;
+        margin-bottom: 4%;
+      }
+    </style>
+    <title>Buy Plan</title>
+  </head>
+  <body>
+    <div id="container">
+      <div id="lhs">
+        <h1>Watch Ad-Free With Premium</h1>
+        <h3>
+          ✔️ 2800+ Blockbster Movies
+          <img src="/images/question-mark-circle.svg" alt="" />
+        </h3>
+        <h3>
+          ✔️ 200+ Web Series
+          <img src="/images/question-mark-circle.svg" alt="" />
+        </h3>
+        <h3>
+          ✔️ Live TV, Before TV and Downloads<img
+            src="/images/question-mark-circle.svg"
+            alt=""
+          />
+        </h3>
+        <h3>
+          ✔️ Pffer: By Premium and Get 100 Myntra voucher<img
+            src="/images/question-mark-circle.svg"
+            alt=""
+          />
+        </h3>
+        <h3>
+          ✔️ watch on Mobile, TV, Laptop<img
+            src="/images/question-mark-circle.svg"
+            alt=""
+          />
+        </h3>
+        <h3>
+          ✔️ Edarra Competitive Exams Learning<img
+            src="/images/question-mark-circle.svg"
+            alt=""
+          />
+        </h3>
+      </div>
+      <div id="rhs">
+        <div id="container2">
+          <div id="cont1">
+            <button id="top">LIMITED PERIOD OFFER</button
+            ><button id="top2">SAVE 30%</button>
+          </div>
+
+          <label
+            ><input type="radio" name="username" value="699" />12 months plan at
+            just 699</label
+          >
+          <h5>Watch on 3 screens at the same time</h5>
+          <br />
+          <label
+            ><input type="radio" name="username" value="399" />3 months plan at
+            399</label
+          >
+          <h5>Watch on 3 screens at the same time</h5>
+          <br /><br />
+
+          <button id="qwer">Submit</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  let btnShow = document.querySelector("#qwer");
+  let result = document.querySelector("#hallo");
+
+  btnShow.addEventListener("click", () => {
+    let selected = document.querySelector('input[type="radio"]:checked');
+    if (selected.value === "") {
+      alert("Please Select Your Plan");
+    } else {
+      let ress = document.createElement("a");
+      ress.setAttribute("href", "Homepage1.html");
+      ress.setAttribute("id", "ac");
+      btn = document.createElement("button");
+
+      btn.innerText = "Home";
+      ress.append(btn);
+      document.querySelector("body").append(ress);
+      alert("Your Plan is activated");
+    }
+  });
+</script>
